@@ -9,6 +9,7 @@ Design and analysis of a mass-spring-damper system using state-space methods. Im
 ## System Model
 The dynamics of the system are given by
 > mẍ + cẋ + kx = u
+
 where:
 
 m = Mass
@@ -32,7 +33,9 @@ For the sake of this project, the system parameters used were:
 ### Pole-Zero Map:
 ![Pole-Zero Map](plots/PZMap_OL.png)
 From the Pole-Zero Map, we can see that the eigen-values of our system are:
+
 > -0.1000 ± 1.9975i
+
 From the Natural and Forced Response plots, as well as the eigenvalues, it is evident that the system is lightly damped and exhibits significant oscillatory behavior before settling.
 
 ## Control Design Workflow
@@ -55,10 +58,10 @@ A PID controller was designed using MATLAB's pidtune() function and used as a be
 ## Results and Analysis
 ### Pole Placement 
 Arbitrary poles were placed at:
-- \(-2 \pm 6i\)
-- \(-4 \pm 4i\)
-- \(-5,\,-6\)
-- \(-15,\,-20\)
+- \(-2 ± 6i\)
+- \(-4 ± 4i\)
+- \(-5,-6\)
+- \(-15,-20\)
 ![Pole Placement Map](plots/ChosenPolePlacements.png)
 
 The following Responses were generated:
@@ -109,8 +112,10 @@ PID controllers remain one of the most widely used control strategies due to the
 ### Reference Tracking 
 Since LQR is inherently a regulator, a reference gain was introduced to enable unit-step tracking. This ensured that both PID and LQR controllers were evaluated on the same tracking task.
 The control law is given by:
-> u = -Kx + N_r r 
-where `N_r` is the reference gain used to eliminate steady-state tracking error.
+
+> u = −Kx + Nr*r 
+
+where `Nr` is the reference gain used to eliminate steady-state tracking error.
 
 ### PID vs LQR Comparison 
 #### Closed-Loop Tracking Performance
